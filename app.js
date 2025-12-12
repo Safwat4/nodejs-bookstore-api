@@ -2,8 +2,8 @@ const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const userRoutes = require('./Routers/users');
-const bookRoutes = require('./Routers/books');
+const usersRoutes = require('./Routers/users');
+const booksRoutes = require('./Routers/books');
 
 const app = express();
 app.use(bodyParser.json());
@@ -24,8 +24,8 @@ const connectDB = async () => {
 connectDB();
 
 
-app.use('/', userRoutes);
-app.use('/', bookRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/books', booksRoutes);
 
 
 app.listen(4050)
