@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // User Registration Controller
 exports.register = async function (req, res) {
     try {
-        const { username, email, password, phone } = req.body;
+        const { username, email, password, phone, role } = req.body;
 
         // check existing email
         const existingEmail = await userModel.findOne({ email });
@@ -27,7 +27,8 @@ exports.register = async function (req, res) {
             username,
             email,
             phone,
-            password: hashedPassword
+            password: hashedPassword,
+            ...(role && { role })
         });
 
         const saved = await newUser.save();

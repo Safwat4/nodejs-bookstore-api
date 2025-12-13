@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bookController = require('../Controllers/books');
 const authMiddleware = require('../Middlewares/auth');
-const adminMiddleware = require('../Middlewares/admin');
+const adminMiddleware = require('../Middlewares/checkAdmin');
 
 // Api to get all books  --> by user and admin
 router.get('/', authMiddleware, bookController.getAllBooks);
