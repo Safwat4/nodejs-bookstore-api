@@ -1,14 +1,14 @@
 {
-  "name": "project_1",
+  "name": "bookstore_api",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "author": "",
+  "author": "safwatahmed",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon src/server.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
