@@ -1,13 +1,18 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || "development";
 const LOCAL_DB_URI =
-  process.env.LOCAL_DB_URI || 'mongodb://localhost:27017/bookstoreDB';
+  process.env.LOCAL_DB_URI || "mongodb://localhost:27017/bookstoreDB";
 const PROD_DB_URI = process.env.PROD_DB_URI;
 const ACCESS_TOKEN_SECRET =
-  process.env.ACCESS_TOKEN_SECRET || 'default_jwt_secret';
-const ACCESS_TOKEN_EXPIRES_IN = process.env.ACCESS_TOKEN_EXPIRES_IN || '15m';
+  process.env.ACCESS_TOKEN_SECRET || "default_jwt_secret";
+const ACCESS_TOKEN_EXPIRES_IN = process.env.ACCESS_TOKEN_EXPIRES_IN || "15m";
+const REFRESH_TOKEN_SECRET =
+  process.env.REFRESH_TOKEN_SECRET ||
+  process.env.ACCESS_TOKEN_SECRET ||
+  "default_jwt_secret";
+const REFRESH_TOKEN_EXPIRES_IN = process.env.REFRESH_TOKEN_EXPIRES_IN || "7d";
 
 module.exports = {
   PORT,
@@ -16,4 +21,6 @@ module.exports = {
   PROD_DB_URI,
   ACCESS_TOKEN_SECRET,
   ACCESS_TOKEN_EXPIRES_IN,
+  REFRESH_TOKEN_SECRET,
+  REFRESH_TOKEN_EXPIRES_IN,
 };
