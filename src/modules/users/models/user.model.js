@@ -11,7 +11,5 @@ const userModel = new Schema({
 }, { timestamps: true });
 
 
-userModel.methods.comparePassword = function (candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
-}
+
 module.exports = mongoose.model('User', userModel);
