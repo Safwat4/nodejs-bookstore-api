@@ -11,8 +11,6 @@ const {
 const {
   signAccessToken,
   signRefreshToken,
-  verifyAccessToken,
-  verifyRefreshToken,
 } = require("../../../utils/services/jwt.service");
 
 /**
@@ -56,7 +54,20 @@ async function login(loginData) {
 
     const match = await comparePassword(loginData.password, user.password);
     if (!match) throw new Error("Invalid Email or Password");
-    return user;
+
+    // Generate JWT tokens
+    const accessToken = await signAccessToken({
+      id: user.id,
+      username: user.username,
+      role: user.role,
+    });
+    const refreshToken = await signRefreshToken({
+      id: user.id,
+      username: user.username,
+      role: user.role,
+    });
+
+    return { user, accessToken, refreshToken };
   } catch (error) {
     throw new Error(error.message);
   }

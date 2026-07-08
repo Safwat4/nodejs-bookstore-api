@@ -34,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
  * @description Login a user
  * @param {Object} req - Express request object
  */
-const loginUser = asyncHandler(async (req,res) => {
+const loginUser = asyncHandler(async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await userService.login({
@@ -44,8 +44,10 @@ const loginUser = asyncHandler(async (req,res) => {
     res.status(200).json({
       message: "User Logged In Successfully",
       user: {
-        username: user.username,
-        email: user.email,
+        username: user.user.username,
+        email: user.user.email,
+        accessToken: user.accessToken,
+        refreshToken: user.refreshToken,
       },
     });
   } catch (error) {
