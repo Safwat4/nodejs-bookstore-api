@@ -12,7 +12,7 @@ const mountRoutes = (app) => {
   app.use('/api/v1.0/', usersRoutes);
 
   // books routes
-  // app.use('/api/v1.0/books', booksRoutes);
+   app.use('/api/v1.0/', booksRoutes);
 
   // 404 handler
   app.use((req, res) => {
