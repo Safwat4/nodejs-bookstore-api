@@ -26,6 +26,17 @@ async function getAllBooks() {
 }
 
 /**
+ * @function getBookByTitle
+ * @description Retrieve a book by its title from the database
+ * @param {string} title - Title of the book
+ * @returns {Promise<Book|null>} - Book document or null if not found
+ */
+async function getBookByTitle(title) {
+  const book = await Book.findOne({ title: title });
+  return book;
+}
+
+/**
  * @function getBookByName
  * @description Retrieve a book by its name from the database
  * @param {string} name - Name of the book
@@ -74,7 +85,7 @@ async function deleteBook(id) {
 module.exports = {
   createBook,
   getAllBooks,
-  getBookByName,
+  getBookByTitle,
   getBookById,
   updateBook,
   deleteBook

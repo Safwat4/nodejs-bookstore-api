@@ -38,11 +38,11 @@ async function getAllBooks() {
 }
 
 /**
- * @function getBookByName
+ * @function getBookByTitle
  */
-async function getBookByName(name) {
+async function getBookByTitle(title) {
   try {
-    const book = await bookRepository.getBookByName(name);
+    const book = await bookRepository.getBookByTitle(title);
     return book;
   } catch (error) {
     throw new Error(error.message);
@@ -94,7 +94,7 @@ async function deleteBook(id) {
 module.exports = {
   createBook,
   getAllBooks,
-  getBookByName,
+  getBookByTitle,
   getBookById,
   updateBook,
   deleteBook,

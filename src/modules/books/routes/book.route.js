@@ -10,6 +10,9 @@ router.get('/', authMiddleware, bookController.getAllBooks);
 // Api to get a book by ID --> by user and admin
 router.get('/:id', authMiddleware, bookController.getBookById);
 
+// Api to get a book by title --> by user and admin
+router.get('/title/:title', authMiddleware, bookController.getBookByTitle);
+
 // Api to add a new book --> by admin only
 router.post('/', authMiddleware, adminMiddleware, bookController.createBook);
 

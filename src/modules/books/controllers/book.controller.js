@@ -45,14 +45,14 @@ const getAllBooks = async (req, res) => {
 };
 
 /**
- * @function getBookByName
- * @description Retrieve a book by its name
+ * @function getBookByTitle
+ * @description Retrieve a book by its title
  */
 
-const getBookByName = async (req, res) => {
+const getBookByTitle = async (req, res) => {
   try {
-    const { name } = req.params;
-    const book = await bookService.getBookByName(name);
+    const { title } = req.params;
+    const book = await bookService.getBookByTitle(title);
     if (!book) {
       return res.status(404).json({
         message: "Book not found",
@@ -147,7 +147,7 @@ const deleteBook = async (req, res) => {
 module.exports = {
   createBook,
   getAllBooks,
-  getBookByName,
+  getBookByTitle,
   getBookById,
   updateBook,
   deleteBook,
