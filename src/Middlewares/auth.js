@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("../utils/services/jwt.service")
 
 
 module.exports = (req, res, next) => {
@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
             return res.status(401).json({ message: 'Token missing' });
         }
         // Verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verifyAccessToken(token);
         req.user = decoded;
 
         next();

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Define the Book schema
-const bookSchema = new Schema({
+const bookModel = new Schema({
     title: { type: String, required: true },
     author: { type: String, required: true },
     publishedDate: { type: Date, required: true },
@@ -11,7 +11,7 @@ const bookSchema = new Schema({
     price: { type: Number, required: true }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Books', bookSchema);
+module.exports = mongoose.model('Books', bookModel);
 /*
 { 
     "title": "The Mistery of the Blue Train",
