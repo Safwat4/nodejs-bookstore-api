@@ -12,10 +12,10 @@ const bookRepository = require("../repositories/book.repo");
 
 async function createBook(bookData) {
   try {
-    // Check if a book with the same name already exists
-    const existingBook = await bookRepository.getBookByName(bookData.name);
+    // Check if a book with the same title already exists
+    const existingBook = await bookRepository.getBookByTitle(bookData.title);
     if (existingBook) {
-      throw new Error("A book with the same name already exists.");
+      throw new Error("A book with the same title already exists.");
     }
     // Create a new book
     const book = await bookRepository.createBook(bookData);
@@ -67,10 +67,10 @@ async function getBookById(id) {
  */
 async function updateBook(id, updateData) {
   try {
-    // Check if a book with the same name already exists
-    const existingBook = await bookRepository.getBookByName(updateData.name);
+    // Check if a book with the same title already exists
+    const existingBook = await bookRepository.getBookByTitle(updateData.title);
     if (existingBook) {
-      throw new Error("A book with the same name already exists.");
+      throw new Error("A book with the same title already exists.");
     }
     const updatedbook = await bookRepository.updateBook(id, updateData);
     return updatedbook;
